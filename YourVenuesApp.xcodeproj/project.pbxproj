@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0256CAF627566660000A5340 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256CAF527566660000A5340 /* HomeScreenViewController.swift */; };
+		0256CAFA27566E85000A5340 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256CAF927566E85000A5340 /* ContainerViewController.swift */; };
+		0256CB002757B0FF000A5340 /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */; };
 		02AD68452752471600A89F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD68442752471600A89F4F /* AppDelegate.swift */; };
 		02AD68472752471600A89F4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD68462752471600A89F4F /* SceneDelegate.swift */; };
-		02AD68492752471600A89F4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD68482752471600A89F4F /* ViewController.swift */; };
 		02AD684C2752471600A89F4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AD684A2752471600A89F4F /* Main.storyboard */; };
 		02AD684E2752471E00A89F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02AD684D2752471E00A89F4F /* Assets.xcassets */; };
 		02AD68512752471E00A89F4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AD684F2752471E00A89F4F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02AD68412752471600A89F4F /* YourVenues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourVenues.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0256CAF527566660000A5340 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		0256CAF927566E85000A5340 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
+		02AD68412752471600A89F4F /* YourVenuesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourVenuesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02AD68442752471600A89F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02AD68462752471600A89F4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02AD68482752471600A89F4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02AD684B2752471600A89F4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02AD684D2752471E00A89F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02AD68502752471E00A89F4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0295577B27554AEB009342A9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0256CAF527566660000A5340 /* HomeScreenViewController.swift */,
+				0256CAF927566E85000A5340 /* ContainerViewController.swift */,
+				0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		02AD68382752471600A89F4F = {
 			isa = PBXGroup;
 			children = (
@@ -48,7 +62,7 @@
 		02AD68422752471600A89F4F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				02AD68412752471600A89F4F /* YourVenues.app */,
+				02AD68412752471600A89F4F /* YourVenuesApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,7 +72,7 @@
 			children = (
 				02AD68442752471600A89F4F /* AppDelegate.swift */,
 				02AD68462752471600A89F4F /* SceneDelegate.swift */,
-				02AD68482752471600A89F4F /* ViewController.swift */,
+				0295577B27554AEB009342A9 /* Controller */,
 				02AD684A2752471600A89F4F /* Main.storyboard */,
 				02AD684D2752471E00A89F4F /* Assets.xcassets */,
 				02AD684F2752471E00A89F4F /* LaunchScreen.storyboard */,
@@ -70,9 +84,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		02AD68402752471600A89F4F /* YourVenues */ = {
+		02AD68402752471600A89F4F /* YourVenuesApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 02AD68552752471E00A89F4F /* Build configuration list for PBXNativeTarget "YourVenues" */;
+			buildConfigurationList = 02AD68552752471E00A89F4F /* Build configuration list for PBXNativeTarget "YourVenuesApp" */;
 			buildPhases = (
 				02AD683D2752471600A89F4F /* Sources */,
 				02AD683E2752471600A89F4F /* Frameworks */,
@@ -82,9 +96,9 @@
 			);
 			dependencies = (
 			);
-			name = YourVenues;
+			name = YourVenuesApp;
 			productName = YourVenues;
-			productReference = 02AD68412752471600A89F4F /* YourVenues.app */;
+			productReference = 02AD68412752471600A89F4F /* YourVenuesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +115,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 02AD683C2752471600A89F4F /* Build configuration list for PBXProject "YourVenues" */;
+			buildConfigurationList = 02AD683C2752471600A89F4F /* Build configuration list for PBXProject "YourVenuesApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,7 +128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				02AD68402752471600A89F4F /* YourVenues */,
+				02AD68402752471600A89F4F /* YourVenuesApp */,
 			);
 		};
 /* End PBXProject section */
@@ -137,9 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02AD68492752471600A89F4F /* ViewController.swift in Sources */,
 				02AD68452752471600A89F4F /* AppDelegate.swift in Sources */,
+				0256CAFA27566E85000A5340 /* ContainerViewController.swift in Sources */,
 				02AD68472752471600A89F4F /* SceneDelegate.swift in Sources */,
+				0256CB002757B0FF000A5340 /* VenuesTableViewController.swift in Sources */,
+				0256CAF627566660000A5340 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +336,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		02AD683C2752471600A89F4F /* Build configuration list for PBXProject "YourVenues" */ = {
+		02AD683C2752471600A89F4F /* Build configuration list for PBXProject "YourVenuesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02AD68532752471E00A89F4F /* Debug */,
@@ -329,7 +345,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		02AD68552752471E00A89F4F /* Build configuration list for PBXNativeTarget "YourVenues" */ = {
+		02AD68552752471E00A89F4F /* Build configuration list for PBXNativeTarget "YourVenuesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02AD68562752471E00A89F4F /* Debug */,
