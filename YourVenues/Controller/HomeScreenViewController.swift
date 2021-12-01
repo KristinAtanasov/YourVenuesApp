@@ -13,7 +13,7 @@ class HomeScreenViewController: UIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width  , height: 370)
         view.addSubview(imageView)
         
-        var label = UILabel()
+        let label = UILabel()
         label.frame = CGRect(x: 30, y: 380, width: 300, height: 300)
         label.textAlignment = .justified
         label.numberOfLines = 0
