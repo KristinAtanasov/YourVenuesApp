@@ -21,10 +21,5 @@ class HomeScreenViewController: UIViewController {
         label.font = UIFont(name: "Avenir-Light", size: 19.0)
         label.text = "Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum "
         view.addSubview(label)
-        
-        self.view = view
     }
-    
-    
-    
 }
