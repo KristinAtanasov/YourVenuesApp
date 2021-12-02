@@ -6,6 +6,9 @@ import UIKit
 
 class ContainerViewController: UIViewController {
 
+    @IBOutlet var segmentController: UISegmentedControl!
+    
+    
     let homeScreenVC = HomeScreenViewController()
     let venuesVC = VenuesTableViewController()
     
@@ -36,6 +39,7 @@ class ContainerViewController: UIViewController {
         venuesVC.view.isHidden = true
         
         if sender.selectedSegmentIndex == 0 {
+           
             homeScreenVC.view.isHidden = false
         }else {
             venuesVC.view.isHidden = false
