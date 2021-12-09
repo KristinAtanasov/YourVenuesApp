@@ -16,9 +16,7 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchVenues()
-        
-        
+   
         let screenSize = UIScreen.main.bounds
         let image = UIImage(named: "venue.jpg")
         let imageView = UIImageView(image: image)
@@ -33,35 +31,8 @@ class HomeScreenViewController: UIViewController {
         label.textColor = .black
         label.font = UIFont(name: "Avenir", size: 19.0)
         label.text = "Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum dolorium Lorem ipsum "
+        label.textColor = .black
         view.addSubview(label)
         
-    }
-    
-    // Search for near venues based on a current location
-    func searchVenues(){
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Venue"
-        request.region = mapView.region
-        
-        let search = MKLocalSearch(request: request)
-      
-        search.start(completionHandler: {(response, error) in
-            
-            if error != nil {
-                print("Error occurred in search:\(error!.localizedDescription)")
-            } else if response!.mapItems.count == 0 {
-                print("No matches found")
-            } else {
-                print("Matches found")
-                if let venuesResponse = response{
-                    for item in venuesResponse.mapItems {
-                        guard let venueName = item.name else { return }
-                      
-                    }
-                }
-               
-            }
-        })
-     
     }
 }
