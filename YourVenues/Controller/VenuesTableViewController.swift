@@ -4,16 +4,20 @@ import UIKit
 import MapKit
 
 class VenuesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     let mapKitView = MKMapView()
     let tableView = UITableView()
     
     private var cellIdentifier = "cell"
     
-    var array = ["hello", "honey", "compassion", "energy", "believe"]
+    var venuesNames = [String]()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         
         // Set the table view data source and delegate to the current controller.
         tableView.dataSource = self
@@ -28,28 +32,29 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(tableView)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
-    }
+ }
     
     
 
     // MARK: - Table view data source
-
-     func numberOfSections(in tableView: UITableView) -> Int {
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return venuesNames.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.textLabel?.text = array[indexPath.row]
+        cell.textLabel?.text = venuesNames[indexPath.row]
         
         return cell
     }
-
+ 
 }
+
