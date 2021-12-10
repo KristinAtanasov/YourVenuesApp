@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>The application requires location services to work</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow the app to use your location?</string>
 	<key>Privacy - Location usage description</key>
