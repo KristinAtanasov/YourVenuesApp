@@ -14,16 +14,12 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     private var cellIdentifier = "cell"
     
-    
     var matchingItems = [MKMapItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchVenues()
-        //showCurrentLocation()
-        checkLocationServices()
-        
         
         // Set the table view data source and delegate to the current controller.
         tableView.dataSource = self
@@ -39,13 +35,8 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(tableView)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
-        if CLLocationManager.locationServicesEnabled() {
-            // continue to implement here
-        } else {
-            // Do something to let users know why they need to turn it on.
-        }
-        
+
+        showCurrentLocation()
     }
     
     
@@ -68,35 +59,19 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    //        func showCurrentLocation(){
-    //                let coordinate = mapView.userLocation.coordinate
-    //                let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-    //            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-    //                self.mapView.setRegion(region, animated: true)
-    //            }
-    //
-    func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            checkLocationAuthorization()
-        } else {
-            // Show alert letting the user know they have to turn this on.
-        }
-    }
-    func checkLocationAuthorization() {
-        switch locationManager.authorizationStatus {
-        case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
-        case .denied: // Show alert telling users how to turn on permissions
-            break
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-            mapView.showsUserLocation = true
-        case .restricted: // Show an alert letting them know what’s up
-            break
-        case .authorizedAlways:
-            break
-        }
-    }
+        func showCurrentLocation(){
+                let coordinate = mapView.userLocation.coordinate
+                let locationCordinates = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = locationCordinates
+                mapView.addAnnotation(annotation)
+            
+                let region = MKCoordinateRegion(center: locationCordinates, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                self.mapView.setRegion(region, animated: true)
+            }
+    
+  
         // MARK: - Table view data source
         
         
