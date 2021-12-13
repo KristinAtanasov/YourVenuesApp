@@ -44,8 +44,4 @@ class ContainerViewController: UIViewController {
             venuesVC.view.isHidden = false
         }
     }
-    
-  
-    
-   
 }

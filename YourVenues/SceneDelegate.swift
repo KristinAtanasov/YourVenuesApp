@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  YourVenues
-//
-//  Created by c on 27/11/2021.
-//
 
 import UIKit
 
