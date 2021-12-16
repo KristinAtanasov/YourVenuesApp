@@ -17,14 +17,14 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     private var cellIdentifier = "cell"
     
-    var matchingVenues = [MKMapItem]()
-    var coreDataVenues = [MKMapItem]()
+    var matchingVenues = [String]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchVenues()
+        saveVenues()
         
         // Set the table view data source and delegate to the current controller.
         tableView.dataSource = self
@@ -42,11 +42,7 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(mapView)
         view.addSubview(tableView)
         
-        
         showCurrentLocation()
-        saveVenues()
-        fetchVenues()
-        
     }
     
     
@@ -62,8 +58,12 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
             guard let response = response else {
                 return
             }
+            let nearFindedVenues = response.mapItems
             
-            self.matchingVenues = response.mapItems
+            for venue in nearFindedVenues{
+                guard let venueName = venue.name else {return}
+                self.matchingVenues.append(venueName)
+            }
             self.tableView.reloadData()
         }
     }
@@ -84,7 +84,53 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    
+    func saveVenues(){
+
+        let venueObject = Venues(context: self.context)
+
+        do{
+            for venue in self.matchingVenues{
+                
+                venueObject.venues?.append(venue)
+            }
+
+
+        }
+        catch{
+            print("There is error in encoding the data \(error.localizedDescription)")
+        }
+
+        // Save the data into Core Data model
+        do {
+            try self.context.save()
+        }
+        catch{
+            print("\(error.localizedDescription)")
+        }
+
+        // Re fetch the data from Core Data
+        self.fetchVenues()
+    }
+
+    func fetchVenues(){
+
+        // Fetch the venues from the Core Data and asign it to venues array
+
+        do{
+            let fetchRequest = Venues.fetchRequest() as NSFetchRequest<Venues>
+
+            self.matchingVenues = try context.fetch(fetchRequest)
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch{
+            print("\(error.localizedDescription)")
+
+        }
+    }
+
     
     // MARK: - Table view data source
     
@@ -100,62 +146,18 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        let venuesNames = matchingVenues[indexPath.row]
+        //guard let venuesNames = coreDataVenues[indexPath.row].venues else {return cell}
         
         //print(venuesNames)
         
-        cell.textLabel?.text = venuesNames.name
+        cell.textLabel?.text = matchingVenues[indexPath.row]
+       
         return cell
         
     }
     
-    
-    func fetchVenues() -> [MKMapItem]{
-        
-        
-        // Fetch the venues from the Core Data and asign it to venues array
-
-        do{
-            let venueData = try context.fetch(Venues.fetchRequest())
-           
-            guard let recentSearchLocations = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(venueData) as? [MKMapItem] else {
-                return []
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        catch{
-            print("\(error.localizedDescription)")
-        }
-        
-    }
-    
-    func saveVenues(){
-        
-        let venueObject = Venues(context: self.context)
-        
-        do{
-            let venueData = try NSKeyedArchiver.archivedData(withRootObject: self.matchingVenues, requiringSecureCoding: false)
-            venueObject.venue = venueData
-        }
-        catch{
-            print("There is error in encoding the data \(error.localizedDescription)")
-        }
-        
-        
-        // Save the data into Core Data model
-        do {
-            try self.context.save()
-        }
-        catch{
-            print("\(error.localizedDescription)")
-        }
-        
-        // Re fetch the data from Core Data
-        self.fetchVenues()
-    }
 }
+   
 
 
 
