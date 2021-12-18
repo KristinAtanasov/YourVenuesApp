@@ -11,13 +11,13 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     let mapView = MKMapView()
     let tableView = UITableView()
     
-    // Reference to managed object context
+    // Reference to persistent container context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     private var cellIdentifier = "cell"
     
-    var matchingVenues = [String]()
+    var venuesNames = [String]()
     
     
     override func viewDidLoad() {
@@ -25,6 +25,8 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         searchVenues()
         saveVenues()
+        
+        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         // Set the table view data source and delegate to the current controller.
         tableView.dataSource = self
@@ -58,11 +60,14 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
             guard let response = response else {
                 return
             }
-            let nearFindedVenues = response.mapItems
             
+            let nearFindedVenues = response.mapItems
+
+            // Adding the venues names from near venues MapView objects into venuesNames array
             for venue in nearFindedVenues{
                 guard let venueName = venue.name else {return}
-                self.matchingVenues.append(venueName)
+                
+                self.venuesNames.append(venueName)
             }
             self.tableView.reloadData()
         }
@@ -85,21 +90,11 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func saveVenues(){
-
-        let venueObject = Venues(context: self.context)
-
-        do{
-            for venue in self.matchingVenues{
-                
-                venueObject.venues?.append(venue)
-            }
-
-
-        }
-        catch{
-            print("There is error in encoding the data \(error.localizedDescription)")
-        }
-
+        
+        let coreDataVenue = Venues(context: self.context)
+        
+        coreDataVenue.venues = venuesNames
+        
         // Save the data into Core Data model
         do {
             try self.context.save()
@@ -107,27 +102,27 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         catch{
             print("\(error.localizedDescription)")
         }
-
-        // Re fetch the data from Core Data
         self.fetchVenues()
     }
-
+    
     func fetchVenues(){
 
-        // Fetch the venues from the Core Data and asign it to venues array
-
+        // Fetch the venues from the Core Data and asign it to venuesNames array
         do{
             let fetchRequest = Venues.fetchRequest() as NSFetchRequest<Venues>
-
-            self.matchingVenues = try context.fetch(fetchRequest)
-
+    
+            
+            self.venuesNames = try (context.fetch(fetchRequest).first?.venues as! [String])
+            
+            print("Check")
+            print(self.venuesNames)
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
         catch{
             print("\(error.localizedDescription)")
-
         }
     }
 
@@ -139,23 +134,20 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matchingVenues.count - 20
+        return venuesNames.count - 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        //guard let venuesNames = coreDataVenues[indexPath.row].venues else {return cell}
+        let venueName = venuesNames[indexPath.row]
         
-        //print(venuesNames)
-        
-        cell.textLabel?.text = matchingVenues[indexPath.row]
+        cell.textLabel?.text = venueName
        
         return cell
         
     }
-    
 }
    
 

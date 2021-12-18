@@ -43,11 +43,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0295577B27554AEB009342A9 /* Controller */ = {
+		0295577B27554AEB009342A9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		02AD68382752471600A89F4F = {
@@ -71,7 +71,7 @@
 			children = (
 				02AD68442752471600A89F4F /* AppDelegate.swift */,
 				02AD68462752471600A89F4F /* SceneDelegate.swift */,
-				0295577B27554AEB009342A9 /* Controller */,
+				0295577B27554AEB009342A9 /* Controllers */,
 				0256CAF527566660000A5340 /* HomeScreenViewController.swift */,
 				0256CAF927566E85000A5340 /* ContainerViewController.swift */,
 				0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */,
