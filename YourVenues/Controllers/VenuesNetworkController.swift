@@ -7,13 +7,13 @@ import CoreData
 
 class VenuesNetworkController{
     
-    // Reference to the VenuesNetworkController
+    //Creates a reference to the VenuesNetworkController
     static let VNController = VenuesNetworkController()
     
-    // Reference to persistent container context
+    //Creates a reference to persistent container context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    // Create a MapView Object
+    // Creates a MapView Object
     let mapView = MKMapView()
     
     var nearVenuesNames = [String]()
@@ -58,7 +58,7 @@ class VenuesNetworkController{
     }
     
     func loadVenuesNames(){
-        // Fetch the venues from the Core Data and asign it to venuesNames array
+        // Fetch the venues from the Core Data and asign it to coreDataVenuesNames array
         do{
             let fetchRequest = Venues.fetchRequest() as NSFetchRequest<Venues>
             

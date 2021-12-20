@@ -11,11 +11,9 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
     let mapView = MKMapView()
     let tableView = UITableView()
     
-    // Reference to persistent container context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     private var cellIdentifier = "cell"
     var nearVenuesNames = [String]()
+    
     
     
     override func viewDidLoad() {
@@ -33,7 +31,7 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Register a cell with identifier to TableView
+        // Register a cell with identifier to the TableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
                
         showCurrentLocation()
