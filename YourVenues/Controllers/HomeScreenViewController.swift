@@ -1,4 +1,4 @@
-
+// The HomeScreen controller of the app
 
 import UIKit
 import MapKit
@@ -10,16 +10,16 @@ class HomeScreenViewController: UIViewController {
         
         let screenSize = UIScreen.main.bounds
         
-        // Creating UIImageView with venue image on aspectFill mode.
+        // Creates UIImageView with venue image on aspectFill mode.
         let image = UIImage(named: "venue.jpg")
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width  , height: 370)
+        imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width  , height: 300)
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         
-        //Creating UILabel with About Us text.
+        //Creates UILabel with About Us text.
         let label = UILabel()
-        label.frame = CGRect(x: 30, y: 380, width: 300, height: 300)
+        label.frame = CGRect(x: 30, y: 300 , width: 300, height: 300)
         label.textAlignment = .justified
         label.numberOfLines = 0
         label.textColor = .black
@@ -27,6 +27,5 @@ class HomeScreenViewController: UIViewController {
         label.text = "Your Venues is an APP which main goal is to find best venues near the current location on the user who use the app. Clicking on venues you will see a list with the five closest venues to you. Enjoy!!!"
         label.textColor = .black
         view.addSubview(label)
-        
     }
 }
