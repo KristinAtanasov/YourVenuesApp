@@ -13,8 +13,8 @@
 > - Chosing the venues from the slider will redirect the user to the screen which display the five venues near him.
 
 
-</br>
 
+</br>
 
 </br>
 
