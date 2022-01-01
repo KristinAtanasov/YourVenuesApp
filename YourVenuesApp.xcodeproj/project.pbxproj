@@ -7,28 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024AE8AA277F013600746F97 /* VenuesTableVC + TablaViewMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024AE8A9277F013600746F97 /* VenuesTableVC + TablaViewMethods.swift */; };
+		024AE8BA27807C2800746F97 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024AE8B927807C2800746F97 /* ContainerViewController.swift */; };
+		024AE8C12780819C00746F97 /* HomeScreenVC + SaveVenuesToCoreData .swift in Sources */ = {isa = PBXBuildFile; fileRef = 024AE8C02780819C00746F97 /* HomeScreenVC + SaveVenuesToCoreData .swift */; };
+		024AE8C827809B5900746F97 /* VenuesTableVC + ShowUserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024AE8C727809B5900746F97 /* VenuesTableVC + ShowUserLocation.swift */; };
+		024AE8CC27809F5100746F97 /* VenuesTableVC + LoadingVenues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024AE8CB27809F5100746F97 /* VenuesTableVC + LoadingVenues.swift */; };
 		0256CAF627566660000A5340 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256CAF527566660000A5340 /* HomeScreenViewController.swift */; };
-		0256CAFA27566E85000A5340 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256CAF927566E85000A5340 /* ContainerViewController.swift */; };
 		0256CB002757B0FF000A5340 /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */; };
-		02775DC5276FB8AB003D84CE /* VenuesNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02775DC4276FB8AB003D84CE /* VenuesNetworkController.swift */; };
 		02A3BA34276B75DB00D346E7 /* YourVenues.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02A3BA32276B75DB00D346E7 /* YourVenues.xcdatamodeld */; };
 		02AD68452752471600A89F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD68442752471600A89F4F /* AppDelegate.swift */; };
 		02AD68472752471600A89F4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AD68462752471600A89F4F /* SceneDelegate.swift */; };
-		02AD684C2752471600A89F4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AD684A2752471600A89F4F /* Main.storyboard */; };
 		02AD684E2752471E00A89F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02AD684D2752471E00A89F4F /* Assets.xcassets */; };
 		02AD68512752471E00A89F4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AD684F2752471E00A89F4F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		024AE8A9277F013600746F97 /* VenuesTableVC + TablaViewMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VenuesTableVC + TablaViewMethods.swift"; sourceTree = "<group>"; };
+		024AE8B927807C2800746F97 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		024AE8C02780819C00746F97 /* HomeScreenVC + SaveVenuesToCoreData .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenVC + SaveVenuesToCoreData .swift"; sourceTree = "<group>"; };
+		024AE8C727809B5900746F97 /* VenuesTableVC + ShowUserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VenuesTableVC + ShowUserLocation.swift"; sourceTree = "<group>"; };
+		024AE8CB27809F5100746F97 /* VenuesTableVC + LoadingVenues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VenuesTableVC + LoadingVenues.swift"; sourceTree = "<group>"; };
 		0256CAF527566660000A5340 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
-		0256CAF927566E85000A5340 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
-		02775DC4276FB8AB003D84CE /* VenuesNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesNetworkController.swift; sourceTree = "<group>"; };
 		02A3BA33276B75DB00D346E7 /* YourVenues.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YourVenues.xcdatamodel; sourceTree = "<group>"; };
 		02AD68412752471600A89F4F /* YourVenuesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourVenuesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02AD68442752471600A89F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02AD68462752471600A89F4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02AD684B2752471600A89F4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02AD684D2752471E00A89F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02AD68502752471E00A89F4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02AD68522752471E00A89F4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		024AE8A8277F00E100746F97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				024AE8CE2780A15300746F97 /* VenuesTableViewController */,
+				024AE8CF2780A16F00746F97 /* HomeScreenVC */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		024AE8CE2780A15300746F97 /* VenuesTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				024AE8A9277F013600746F97 /* VenuesTableVC + TablaViewMethods.swift */,
+				024AE8C727809B5900746F97 /* VenuesTableVC + ShowUserLocation.swift */,
+				024AE8CB27809F5100746F97 /* VenuesTableVC + LoadingVenues.swift */,
+			);
+			path = VenuesTableViewController;
+			sourceTree = "<group>";
+		};
+		024AE8CF2780A16F00746F97 /* HomeScreenVC */ = {
+			isa = PBXGroup;
+			children = (
+				024AE8C02780819C00746F97 /* HomeScreenVC + SaveVenuesToCoreData .swift */,
+			);
+			path = HomeScreenVC;
+			sourceTree = "<group>";
+		};
 		02775DE127714154003D84CE /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,21 +84,12 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
-		02775DE227714168003D84CE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				02AD684A2752471600A89F4F /* Main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		0295577B27554AEB009342A9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				0256CAF527566660000A5340 /* HomeScreenViewController.swift */,
-				0256CAF927566E85000A5340 /* ContainerViewController.swift */,
 				0256CAFF2757B0FF000A5340 /* VenuesTableViewController.swift */,
-				02775DC4276FB8AB003D84CE /* VenuesNetworkController.swift */,
+				024AE8B927807C2800746F97 /* ContainerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,7 +116,7 @@
 				02AD68442752471600A89F4F /* AppDelegate.swift */,
 				02AD68462752471600A89F4F /* SceneDelegate.swift */,
 				0295577B27554AEB009342A9 /* Controllers */,
-				02775DE227714168003D84CE /* View */,
+				024AE8A8277F00E100746F97 /* Extensions */,
 				02775DE127714154003D84CE /* DataModel */,
 				02AD684D2752471E00A89F4F /* Assets.xcassets */,
 				02AD684F2752471E00A89F4F /* LaunchScreen.storyboard */,
@@ -163,7 +185,6 @@
 			files = (
 				02AD68512752471E00A89F4F /* LaunchScreen.storyboard in Resources */,
 				02AD684E2752471E00A89F4F /* Assets.xcassets in Resources */,
-				02AD684C2752471600A89F4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,11 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				02AD68452752471600A89F4F /* AppDelegate.swift in Sources */,
-				0256CAFA27566E85000A5340 /* ContainerViewController.swift in Sources */,
+				024AE8AA277F013600746F97 /* VenuesTableVC + TablaViewMethods.swift in Sources */,
+				024AE8BA27807C2800746F97 /* ContainerViewController.swift in Sources */,
 				02AD68472752471600A89F4F /* SceneDelegate.swift in Sources */,
 				0256CB002757B0FF000A5340 /* VenuesTableViewController.swift in Sources */,
 				02A3BA34276B75DB00D346E7 /* YourVenues.xcdatamodeld in Sources */,
-				02775DC5276FB8AB003D84CE /* VenuesNetworkController.swift in Sources */,
+				024AE8C12780819C00746F97 /* HomeScreenVC + SaveVenuesToCoreData .swift in Sources */,
+				024AE8C827809B5900746F97 /* VenuesTableVC + ShowUserLocation.swift in Sources */,
+				024AE8CC27809F5100746F97 /* VenuesTableVC + LoadingVenues.swift in Sources */,
 				0256CAF627566660000A5340 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,14 +211,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		02AD684A2752471600A89F4F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02AD684B2752471600A89F4F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		02AD684F2752471E00A89F4F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -338,7 +354,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -357,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.YourVenues;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

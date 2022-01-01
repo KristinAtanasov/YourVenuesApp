@@ -1,25 +1,9 @@
-// The controller which hold the methods for fetching, saving and loading the venues data
+//  The extension hold the methods for fetching and saving vanues into CoreData
 
 import UIKit
 import MapKit
-import CoreData
 
-
-class VenuesNetworkController{
-    
-    //Creates a reference to the VenuesNetworkController
-    static let VNController = VenuesNetworkController()
-    
-    //Creates a reference to persistent container context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    // Creates a MapView Object
-    let mapView = MKMapView()
-    
-    var nearVenuesNames = [String]()
-    var coreDataVenuesNames = [String]()
-    
-    
+extension HomeScreenViewController{
     // Search for near venues based on a current location
     func searchVenues(){
         let request = MKLocalSearch.Request()
@@ -56,19 +40,4 @@ class VenuesNetworkController{
             print("\(error.localizedDescription)")
         }
     }
-    
-    func loadVenuesNames(){
-        // Fetch the venues from the Core Data and asign it to coreDataVenuesNames array
-        do{
-            let fetchRequest = Venues.fetchRequest() as NSFetchRequest<Venues>
-            
-            guard let fetchedVenuesNames = try context.fetch(fetchRequest).first?.venuesNames else {return}
-            
-            coreDataVenuesNames = fetchedVenuesNames
-        }
-        catch{
-            print("\(error.localizedDescription)")
-        }
-    }
 }
-

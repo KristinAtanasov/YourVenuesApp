@@ -2,30 +2,31 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 import CoreData
 
-class VenuesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate{
+
+class VenuesTableViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate{
     
-    //Initialize the MapView and TableView objects
-    let mapView = MKMapView()
-    let tableView = UITableView()
+    lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private var cellIdentifier = "cell"
+    lazy var mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        return mapView
+    }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    lazy var cellIdentifier = "cell"
     var nearVenuesNames = [String]()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-        let screenSize = UIScreen.main.bounds
-        
-        // Set the size for MapView and TableView and add it to the main view.
-        mapView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: (screenSize.height / 3))
-        tableView.frame = CGRect(x: 0, y: mapView.frame.height, width: screenSize.width, height: screenSize.height)
-        view.addSubview(mapView)
-        view.addSubview(tableView)
+        view.backgroundColor = .white
         
         // Set the table view data source and its delegate to the current controller.
         tableView.dataSource = self
@@ -33,44 +34,44 @@ class VenuesTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         // Register a cell with identifier to the TableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-               
+        
+        // Configure the views in the controller
+        setupViews()
+        
+        // Show the user current location on the MapView
         showCurrentLocation()
-    }
-  
-    func showCurrentLocation(){
         
-        // Accessing the user current location
-        let coordinate = mapView.userLocation.coordinate
-        let locationCordinates = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationCordinates
-        mapView.addAnnotation(annotation)
-        
-        let region = MKCoordinateRegion(center: locationCordinates, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-        self.mapView.setRegion(region, animated: true)
-    }
-
-    
-    // MARK: - Table view data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // Load the venues names from Core Data atribute which will be used to populate the TableView
+        loadVenuesNames()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nearVenuesNames.count - 20
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func setupViews(){
+        //Setting the constraints for mapView
+        view.addSubview(mapView)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        NSLayoutConstraint.activate([
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+        ])
         
-        cell.textLabel?.text = nearVenuesNames[indexPath.row]
-       
-        return cell
+        //Setting the constraints for tableView
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: mapView.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
     }
 }
+
+
+
+
+
 
 
 

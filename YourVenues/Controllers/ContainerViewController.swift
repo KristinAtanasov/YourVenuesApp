@@ -1,27 +1,34 @@
-// This is the conteiner controller for HomeScreen and VenuesTableView controllers
+// Container controller which switch between the ViewControllers views by using segment control.
 
 import UIKit
-import MapKit
 
 class ContainerViewController: UIViewController {
-    
-    @IBOutlet var segmentController: UISegmentedControl!
     
     let homeScreenVC = HomeScreenViewController()
     let venuesVC = VenuesTableViewController()
     
+    private let segmentControl:UISegmentedControl = {
+        let segmentControl = UISegmentedControl(items: ["Home", "Venues"])
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentControl.addTarget(self, action: #selector(segmentControlSwitch), for: .valueChanged)
+        return segmentControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add homeScreenVC and venuesVC as a childs to the main view
+        // Configure the controllers into contenier controller.
         setupVC()
-
-        // Fetch the data for near venues based on user location
-        VenuesNetworkController.VNController.searchVenues()
-    }
-
-    private func setupVC(){
         
+        // Cogigure the constraints for the segment controller.
+        setupSegmentConstraints()
+    }
+    
+    
+    //MARK: - Setup controllers method
+    
+    private func setupVC(){
         // Add homeScreenVC and venuesVC as a childs to the main view
         addChild(homeScreenVC)
         addChild(venuesVC)
@@ -34,26 +41,32 @@ class ContainerViewController: UIViewController {
         homeScreenVC.view.frame = self.view.bounds
         venuesVC.view.frame = self.view.bounds
         venuesVC.view.isHidden = true
-        
     }
     
-    @IBAction func segmenControlTapped(_ sender: UISegmentedControl) {
-        
+    //MARK: - Segment Control Constraints
+    
+    private func setupSegmentConstraints(){
+        //Setting the constraints for the segmentControl
+        view.addSubview(segmentControl)
+        NSLayoutConstraint.activate([
+            segmentControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            segmentControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            segmentControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)
+        ])
+    }
+    
+    //MARK: - Segment Control method
+    
+    @objc func segmentControlSwitch(){
         homeScreenVC.view.isHidden = true
         venuesVC.view.isHidden = true
-        
-        if sender.selectedSegmentIndex == 0 {
+
+        if segmentControl.selectedSegmentIndex == 0 {
             homeScreenVC.view.isHidden = false
+            venuesVC.view.isHidden = true
         } else {
-            
+            homeScreenVC.view.isHidden = true
             venuesVC.view.isHidden = false
-            
-            // Fetch the venues names from the Core Data
-            VenuesNetworkController.VNController.loadVenuesNames()
-            
-            // Add the fetched data from CD entity atribute into ,,nearVenuesNames'' array which will populate the TableView
-            venuesVC.nearVenuesNames = VenuesNetworkController.VNController.coreDataVenuesNames
-            venuesVC.tableView.reloadData()
         }
     }
 }
