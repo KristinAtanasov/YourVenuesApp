@@ -64,7 +64,6 @@ class VenuesTableViewController: UIViewController, MKMapViewDelegate, CLLocation
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
     }
 }
 

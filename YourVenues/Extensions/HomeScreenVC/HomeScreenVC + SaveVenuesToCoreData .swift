@@ -26,7 +26,7 @@ extension HomeScreenViewController{
             
             let coreDataVenues = Venues(context: self.context)
             coreDataVenues.venuesNames = self.nearVenuesNames
-            
+     
             self.saveVenues()
         }
     }
