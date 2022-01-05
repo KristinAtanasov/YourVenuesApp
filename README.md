@@ -10,7 +10,7 @@
 
 > - The app can be used for searching of near venues based on user current location.
 > - The homescreen of the app contain the information about the app.
-> - Chosing the venues from the slider will redirect the user to the screen which display the five venues near him.
+> - Chosing the venues from the slider will redirect the user to the screen which display the venues near him.
 
 
 
@@ -29,4 +29,4 @@
 
 </br>
 
-![venues](https://user-images.githubusercontent.com/67967349/146846008-b78c1de7-14c4-4d10-aaf2-0d35bacde4d3.jpg)
+![venues](https://user-images.githubusercontent.com/67967349/148214794-2a6adc6a-61a0-48c7-8af1-86a5a88e563c.jpg)
