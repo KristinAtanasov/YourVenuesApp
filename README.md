@@ -8,7 +8,7 @@
 
 </br>
 
-> - The app can be used for searching of near venues based on user current location.
+> - The app can be used for searching the near venues based on user current location.
 > - The homescreen of the app contain the information about the app.
 > - Chosing the venues from the slider will redirect the user to the screen which display the venues near him.
 
